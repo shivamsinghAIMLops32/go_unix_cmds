@@ -7,11 +7,13 @@ import (
 	"os"
 	"strings"
 	"sync"
+	"time"
 )
 
 func main() {
 	// user should give me <srcfile path> <destfile path1> <destfile path2>
-	if len(os.Args) < 1 {
+	a := time.Now()
+	if len(os.Args) < 3 {
 		fmt.Fprintf(os.Stdout, "%s", "no args provided")
 	}
 	var wg sync.WaitGroup
@@ -21,6 +23,8 @@ func main() {
 		})
 	}
 	wg.Wait()
+
+	fmt.Println(time.Since(a))
 }
 
 func MyFileWriter(srcPath string, destPath string) error {
