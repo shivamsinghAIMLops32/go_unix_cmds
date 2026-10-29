@@ -2,3 +2,7 @@ hello
 how are you bro
 i am doing good 
 so what's up
+
+void main(){
+    printf("%d",10)
+  }
